@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { PageData } from "./$types";
   export let data: PageData;
+  console.log(data.items)
 </script>
 
 <svelte:head>
@@ -12,7 +13,9 @@
   <h1>SevelteKitブログ</h1>
   <ul>
   {#each data.items as item}
-    <li><a href="{item._id}">{item.title}</a></li>
+    <li>
+      <a href="{item._id}">{item.title}</a>
+    </li>
   {/each}
   </ul>
 </section>
@@ -21,7 +24,5 @@
 section {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 </style>
