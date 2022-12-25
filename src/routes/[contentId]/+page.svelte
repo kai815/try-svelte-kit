@@ -8,7 +8,7 @@
   <meta name="description" content="Svelte demo app" />
 </svelte:head>
 <section>
-  <h1>data.title</h1>
+  <h1>{data.title}</h1>
   {@html data.body}
 </section>
 <style>
