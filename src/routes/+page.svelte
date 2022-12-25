@@ -1,6 +1,8 @@
 <script lang="ts">
   import type { PageData } from "./$types";
   export let data: PageData;
+  //試し
+  const test = `<h2>テスト</h2>`
 </script>
 
 <svelte:head>
@@ -10,6 +12,7 @@
 
 <section>
   <h1>SevelteKitブログ</h1>
+  {@html test}
   <ul>
   {#each data.items as item}
     <li>
