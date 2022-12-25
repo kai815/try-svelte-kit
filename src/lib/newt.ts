@@ -17,14 +17,26 @@ export type Article = {
 }
 
 export const getArticleList = async () => {
-  const articles = await client.getContents<Article>({
+  const response = await client.getContents<Article>({
     appUid:APP_UID,
     modelUid:ArticleId,
     query:{
-      //https://developers.newt.so/apis/cdn#tag/contents_general/Queries/Format
-      body: { fmt: 'text' },
-      select: ['title', 'body','slug']
+      select: ['_id', 'title', 'body', 'slug']
     }
   })
-  return articles
+  return response
+}
+
+export const getArticle = async ({contentId}:{contentId:string}) =>{
+  const article = await client.getContent<Article>({
+    appUid:APP_UID,
+    modelUid:ArticleId,
+    contentId:contentId,
+    query:{
+      select: ['title', 'body'],
+      //https://developers.newt.so/apis/cdn#tag/contents_general/Queries/Format
+      // body: { fmt: 'text' },
+    }
+  })
+  return article
 }
